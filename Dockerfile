@@ -5,16 +5,15 @@ WORKDIR /src
 
 RUN apk add --update -t build-deps make gcc g++ git wget bison openssl-dev swig perl-dev python3-dev icu-dev \
     && apk add -u musl && rm -rf /var/cache/apk/* \
-    && wget http://znc.in/releases/znc-1.6.0.tar.gz \
-    && tar zxvf znc-1.6.0.tar.gz \
-    && cd /src/znc-1.6.0 \
+    && wget http://znc.in/releases/znc-1.6.1.tar.gz \
+    && tar zxvf znc-1.6.1.tar.gz \
+    && cd /src/znc-1.6.1 \
     && ./configure --prefix="/opt/znc" --enable-python --enable-perl \
     && make \
     && make install \
     && rm -Rf /src && apk del --purge build-deps \
-    && apk add --update libstdc++ icu
-
-RUN addgroup znc \
+    && apk add --update libstdc++ icu \
+    && addgroup znc \
     && mkdir /data \
     && adduser -G znc -D -h /data znc \
     && chown -R znc:znc /opt/znc \
