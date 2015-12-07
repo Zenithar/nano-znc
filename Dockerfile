@@ -5,9 +5,9 @@ WORKDIR /src
 
 RUN apk add --update -t build-deps make gcc g++ git wget bison openssl-dev swig perl-dev python3-dev icu-dev \
     && apk add -u musl && rm -rf /var/cache/apk/* \
-    && wget http://znc.in/releases/znc-1.6.1.tar.gz \
-    && tar zxvf znc-1.6.1.tar.gz \
-    && cd /src/znc-1.6.1 \
+    && wget http://znc.in/releases/znc-1.6.2.tar.gz \
+    && tar zxvf znc-1.6.2.tar.gz \
+    && cd /src/znc-1.6.2 \
     && ./configure --prefix="/opt/znc" --enable-python --enable-perl \
     && make \
     && make install \
