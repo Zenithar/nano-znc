@@ -1,13 +1,13 @@
-FROM alpine:edge
+FROM frolvlad/alpine-glibc:latest
 MAINTAINER Thibault NORMAND <me@zenithar.org>
 
 WORKDIR /src
 
 RUN apk add --update -t build-deps make gcc g++ git wget bison openssl-dev swig perl-dev python3-dev icu-dev \
     && apk add -u musl && rm -rf /var/cache/apk/* \
-    && wget http://znc.in/releases/znc-1.6.2.tar.gz \
-    && tar zxvf znc-1.6.2.tar.gz \
-    && cd /src/znc-1.6.2 \
+    && wget http://znc.in/releases/znc-1.6.3.tar.gz \
+    && tar zxvf znc-1.6.3.tar.gz \
+    && cd /src/znc-1.6.3 \
     && ./configure --prefix="/opt/znc" --enable-python --enable-perl \
     && make \
     && make install \
