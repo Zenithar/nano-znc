@@ -14,7 +14,7 @@ To start the server:
 #> docker run -d --name znc --volumes-from=zncdata -p 6697:6697 zenithar/nano-znc -f
 ```
 
-ZNC 1.6.0 :
+ZNC 1.6.3 :
 
   - With ICU
   - Python 3.4.6
